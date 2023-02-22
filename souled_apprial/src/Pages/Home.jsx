@@ -30,14 +30,14 @@ import lastcrousel from "../images/lastcrousel.webp"
 
 const Home = () => {
   return (
-    <div style={{marginTop:"80px"}} >
+    <div style={{marginTop:"120px"}} >
          <div className='crousel' >
              <Carousel/>
 
             <div className='collectionmens' style={{marginTop:"30px"}}>
              <Box>
                  <Text fontWeight={"bold"} fontSize="4xl">COLLECTIONS</Text>
-               <Grid w={"97%"} gridTemplateColumns={"repeat(3,1fr)"} gap="30px" margin={"auto"}>
+               <Grid w={"97%"} gridTemplateColumns={{base:"repeat(1,1fr)", md:"repeat(2,1fr)" , lg:"repeat(3,1fr)"}} gap="30px" margin={"auto"}>
                   <Image src={collectionmens1} alt="collection1"/>
                   <Image src={collectionmens3} alt="collection2"/>
                   <Image src={collectionmens2} alt="collection3"/>
@@ -51,7 +51,7 @@ const Home = () => {
             className='categorymens' style={{marginTop:"30px"}}>
              <Box>
                  <Text fontWeight={"bold"} fontSize="4xl">CATEGORIES</Text>
-               <Grid w={"97%"} gridTemplateColumns={"repeat(3,1fr)"} gap="30px" margin={"auto"}>
+               <Grid w={"97%"} gridTemplateColumns={{base:"repeat(1,1fr)", md:"repeat(2,1fr)" , lg:"repeat(3,1fr)"}} gap="30px" margin={"auto"}>
                   <motion.Box
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.9 }}
@@ -85,21 +85,21 @@ const Home = () => {
         </div>
 
 
-         <div className='mensCards' style={{marginTop:"30px"}}>
-           <Grid gridTemplateColumns={"repeat(4,1fr)"} width="97%" margin={"auto"} gap={10}>
+         <div className='mensCards' style={{margin:"auto" ,marginTop:"30px"}} >
+           <Grid gridTemplateColumns={{base:"repeat(2,1fr)", md:"repeat(3,1fr)" , lg:"repeat(4,1fr)"}} width="97%" margin={"auto"} gap={10}>
 
-            <Image src={mmenscard1} alt="mendscard" />
+            <Image src={mmenscard1} marginTop="20px" alt="mendscard" />
             <Image src={mmenscard2} alt="mendscard"/>
             <Image src={mmenscard3} alt="mendscard"/>
             <Image src={mmenscard4} alt="mendscard"/>
             <Image src={mmenscard5} alt="mendscard"/>
             <Image src={mmenscard6} alt="mendscard"/>
-            <Image src={mmenscard7} h={343} alt="mendscard"/>
+            <Image src={mmenscard7} h={{base:210, md:250 , lg:343}} alt="mendscard"/>
             <Image src={mmenscard8} alt="mendscard"/>
             <Image src={mmenscard9} alt="mendscard"/>
             <Image src={mmenscard10} alt="mendscard"/>
             <Image src={mmenscard11} alt="mendscard"/>
-            <Image src={mmenscard12} w={"100%"} h={343} alt="mendscard"/>
+            <Image src={mmenscard12} w={"100%"} h={{base:210, md:250 , lg:343}} alt="mendscard"/>
             
 
            </Grid>
@@ -109,7 +109,7 @@ const Home = () => {
          <div className='OFFICIAL MERCHANDISE' style={{marginTop:"30px"}}>
          <Text fontWeight={"bold"} fontSize="4xl">OFFICIAL MERCHANDISE</Text>
              
-             <Grid gridTemplateColumns={"repeat(5,1fr)"} gap={30} width="92%" margin="auto" marginTop={5}>
+             <Grid  gridTemplateColumns={{base:"repeat(2,1fr)", md:"repeat(3,1fr)" , lg:"repeat(5,1fr)"}} gap={30} width="92%" margin="auto" marginTop={5}>
                  <motion.Box
                    whileHover={{ scale: 1.01 }}
                    whileTap={{ scale: 0.9 }}
@@ -145,7 +145,7 @@ const Home = () => {
          </div>
                <div className='topselling' style={{marginTop:"30px"}}>
                <Text fontWeight={"bold"} fontSize="4xl">TOP SELLING</Text>
-                 <Grid gridTemplateColumns={"repeat(4,1fr)"} gap={30} w={"95%"} margin="auto" marginTop={7}>
+                 <Grid  gridTemplateColumns={{base:"repeat(2,1fr)", md:"repeat(2,1fr)" , lg:"repeat(4,1fr)"}} gap={30} w={"95%"} margin="auto" marginTop={7}>
                   <Image src={topsel1} alt="topsell1"/>
                   <Image src={topsell2} alt="topsell"/>
                   <Image src={topsell3} alt="topsell"/>
