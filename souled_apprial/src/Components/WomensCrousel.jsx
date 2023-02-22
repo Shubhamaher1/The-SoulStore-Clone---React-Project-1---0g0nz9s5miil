@@ -4,10 +4,13 @@ import { Box, IconButton, useBreakpointValue } from '@chakra-ui/react';
 import { BiLeftArrowAlt, BiRightArrowAlt } from 'react-icons/bi';
 // And react-slick as our Carousel Lib
 import Slider from 'react-slick';
-import silder1 from "../images/silder1.webp"
-import silder2 from "../images/silder2.webp"
-import silder3 from "../images/silder3.webp"
+
 import silder4 from "../images/silder4.webp"
+
+
+import womenscrousel2 from "../images/womenscrousel2.webp"
+import womenscrousel3 from "../images/womenscrousel3.webp"
+import womenscrousel4 from "../images/womenscrousel4.webp"
 // Settings for the slider
 const settings = {
   dots: true,
@@ -21,7 +24,7 @@ const settings = {
   slidesToScroll: 1,
 };
 
-export default function Carousel() {
+export default function WomensCarousel() {
   // As we have used custom buttons, we need a reference variable to
   // change the state
   const [slider, setSlider] = React.useState(null);
@@ -31,22 +34,17 @@ export default function Carousel() {
   const top = useBreakpointValue({ base: '90%', md: '50%' });
   const side = useBreakpointValue({ base: '30%', md: '10px' });
 
-  // These are the images used in the slide
-  const cards = [
-    {silder1},
-    {silder2},
-     {silder3},
-  ];
+;
 
   return (
     <Box
       position={'relative'}
       height={'500px'}
-      // width={'98%'}
+      
       overflow={'hidden'}
       margin="auto"
       marginTop={150}
-      width={{base:"60%" , sm:"90%" , md:"90%" , lg:'98%'}}
+      width={{base:"80%" , sm:"90%" , md:"90%" , lg:'98%'}}
       >
       
       {/* CSS files for react-slick */}
@@ -91,14 +89,14 @@ export default function Carousel() {
       <Slider {...settings} ref={(slider) => setSlider(slider)}>
        
           <Box
-           
+            
             height={'xl'}
             position="relative"
             backgroundPosition="center"
             backgroundRepeat="no-repeat"
             backgroundSize="cover"
-            backgroundImage={silder1}
-           
+            backgroundImage={womenscrousel2}
+            marginTop="20px"
           />
            <Box
             
@@ -107,7 +105,7 @@ export default function Carousel() {
             backgroundPosition="center"
             backgroundRepeat="no-repeat"
             backgroundSize="cover"
-            backgroundImage={silder2}
+            backgroundImage={womenscrousel3}
           />
              <Box
             
@@ -116,7 +114,7 @@ export default function Carousel() {
             backgroundPosition="center"
             backgroundRepeat="no-repeat"
             backgroundSize="cover"
-            backgroundImage={silder3}
+            backgroundImage={womenscrousel4}
           />
            <Box
             

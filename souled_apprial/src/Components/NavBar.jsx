@@ -27,6 +27,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {  faHeart, faUser } from "@fortawesome/free-solid-svg-icons";
 import logos from "../images/logos.png"
 import {Link} from "react-router-dom"
+import {AiOutlineHeart} from 'react-icons/ai'
+import {FaRegUser} from 'react-icons/fa' 
+import {CiShoppingCart} from 'react-icons/ci'
 export default function WithSubnavigation() {
   const { isOpen, onToggle } = useDisclosure();
 
@@ -35,7 +38,7 @@ export default function WithSubnavigation() {
       <Flex
           padding="20px"
           position={"fixed"}
-          top="0"
+          top="40px"
           width="100%"
           zIndex={"999"}
         bg={useColorModeValue('white', 'gray.800')}
@@ -89,7 +92,7 @@ export default function WithSubnavigation() {
             fontWeight={400}
             variant={'link'}
             href={'#'}>
-          <FontAwesomeIcon icon={faUser} />
+            <FaRegUser/>
           
           </Button>
           <Button
@@ -97,14 +100,15 @@ export default function WithSubnavigation() {
             display={{ base: 'none', md: 'inline-flex' }}
             fontSize={'xl'}
             fontWeight={600}
-            color={'white'}
-            bg={"#e11b23"}
+            color={'black'}
+            bg={"white"}
             href={'#'}
             _hover={{
-              bg: 'pink.300',
+              bg: '#e11b23',
+              color:"white"
             }}>
              
-             <FontAwesomeIcon icon={faHeart} />
+             <AiOutlineHeart/>
           </Button>
           <Button
             as={'a'}
@@ -112,7 +116,7 @@ export default function WithSubnavigation() {
             fontWeight={400}
             variant={'link'}
             href={'#'}>
-            <BsFillBagCheckFill style={{ fontSize: "30px" }} />
+           <CiShoppingCart/>
           
           </Button>
         </Stack>

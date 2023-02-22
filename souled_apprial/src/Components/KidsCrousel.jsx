@@ -4,11 +4,14 @@ import { Box, IconButton, useBreakpointValue } from '@chakra-ui/react';
 import { BiLeftArrowAlt, BiRightArrowAlt } from 'react-icons/bi';
 // And react-slick as our Carousel Lib
 import Slider from 'react-slick';
-import silder1 from "../images/silder1.webp"
-import silder2 from "../images/silder2.webp"
-import silder3 from "../images/silder3.webp"
-import silder4 from "../images/silder4.webp"
-// Settings for the slider
+
+
+import kidCrousel1 from "../images/kidCrousel1.webp"
+import kidCrousel2 from "../images/kidCrousel2.webp"
+import kidCrousel3 from "../images/kidCrousel3.webp"
+
+import womenscrousel1 from "../images/womenscrousel1.webp"
+
 const settings = {
   dots: true,
   arrows: false,
@@ -21,7 +24,7 @@ const settings = {
   slidesToScroll: 1,
 };
 
-export default function Carousel() {
+export default function KidsCrousel() {
   // As we have used custom buttons, we need a reference variable to
   // change the state
   const [slider, setSlider] = React.useState(null);
@@ -31,22 +34,16 @@ export default function Carousel() {
   const top = useBreakpointValue({ base: '90%', md: '50%' });
   const side = useBreakpointValue({ base: '30%', md: '10px' });
 
-  // These are the images used in the slide
-  const cards = [
-    {silder1},
-    {silder2},
-     {silder3},
-  ];
+;
 
   return (
     <Box
       position={'relative'}
       height={'500px'}
-      // width={'98%'}
+      width={'98%'}
       overflow={'hidden'}
       margin="auto"
       marginTop={150}
-      width={{base:"60%" , sm:"90%" , md:"90%" , lg:'98%'}}
       >
       
       {/* CSS files for react-slick */}
@@ -91,14 +88,13 @@ export default function Carousel() {
       <Slider {...settings} ref={(slider) => setSlider(slider)}>
        
           <Box
-           
+            
             height={'xl'}
             position="relative"
             backgroundPosition="center"
             backgroundRepeat="no-repeat"
             backgroundSize="cover"
-            backgroundImage={silder1}
-           
+            backgroundImage={kidCrousel1}
           />
            <Box
             
@@ -107,7 +103,7 @@ export default function Carousel() {
             backgroundPosition="center"
             backgroundRepeat="no-repeat"
             backgroundSize="cover"
-            backgroundImage={silder2}
+            backgroundImage={kidCrousel2}
           />
              <Box
             
@@ -116,7 +112,7 @@ export default function Carousel() {
             backgroundPosition="center"
             backgroundRepeat="no-repeat"
             backgroundSize="cover"
-            backgroundImage={silder3}
+            backgroundImage={kidCrousel3}
           />
            <Box
             
@@ -125,7 +121,7 @@ export default function Carousel() {
             backgroundPosition="center"
             backgroundRepeat="no-repeat"
             backgroundSize="cover"
-            backgroundImage={silder4}
+            backgroundImage={womenscrousel1}
           />
       </Slider>
     </Box>
