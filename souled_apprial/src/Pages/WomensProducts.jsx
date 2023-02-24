@@ -7,13 +7,14 @@ import DrawerEx from '../Components/Drawer';
 const WomensProducts = () => {
     const [womensdata , setwomensdata] = useState([])
     const [loading , setloading] = useState(false)
+    const [orderby , setorderby] = useState("")
   useEffect(()=>{
-    FetchWomensData()
-  },[])
+    FetchWomensData(orderby)
+  },[orderby])
      
- const FetchWomensData = ()=>{
+ const FetchWomensData = (orderby)=>{
    setloading(true)
-    GetWomensProducts()
+    GetWomensProducts(orderby)
     .then((res) =>{
       setloading(false)
         setwomensdata(res.data)
@@ -42,7 +43,7 @@ const WomensProducts = () => {
        </div>
       
        <Flex className='filter' justify={"start"} marginLeft="75px" marginTop={5}>
-              <DrawerEx  />
+              <DrawerEx  setorderby={setorderby} />
            </Flex>
 
      <Box marginTop={20}>
@@ -53,7 +54,7 @@ const WomensProducts = () => {
                         <Image src={el.image} alt={el.title} w="70%" />
                         <Text fontWeight={"bold"}>{el.title}</Text>
                         <Text >{el.category}</Text>
-                        <Text fontWeight={"bold"}>{el.price}</Text>
+                        <Text fontWeight={"bold"}> ₹ {el.price}</Text>
                     </Card>
                 ))
             }

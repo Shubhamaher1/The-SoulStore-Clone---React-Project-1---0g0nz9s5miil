@@ -8,14 +8,15 @@ import Loader from '../Components/Loader';
 const MensProducts = () => {
 const [mensdata ,setmensdata] = useState([])
 const [loading , setloading] = useState(false)
+const [orderby , setorderby] = useState("")
 
 useEffect(()=>{
-    FecthMendsData()
-},[])
+    FecthMendsData(orderby)
+},[orderby])
 
-const FecthMendsData = ()=>{
+const FecthMendsData = (orderby)=>{
     setloading(true)
-    GetmensProducts()
+    GetmensProducts(orderby)
     .then((res) =>{
          setloading(false)
         setmensdata(res.data)
@@ -41,7 +42,7 @@ const FecthMendsData = ()=>{
 </Breadcrumb>
        </div>
        <Flex className='filter' justify={"start"} marginLeft="75px" marginTop={5}>
-              <DrawerEx  />
+              <DrawerEx  setorderby={setorderby} />
            </Flex>
 
           
@@ -53,7 +54,7 @@ const FecthMendsData = ()=>{
                         <Image src={el.image} alt={el.title} w="70%" />
                         <Text fontWeight={"bold"}>{el.title}</Text>
                         <Text >{el.category}</Text>
-                        <Text fontWeight={"bold"}>{el.price}</Text>
+                        <Text fontWeight={"bold"}> ₹ {el.price}</Text>
                     </Card>
                 ))
             }
