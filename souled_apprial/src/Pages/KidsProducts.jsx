@@ -53,7 +53,7 @@ const KidsProducts = () => {
                         <Image src={el.image} alt={el.title} w="70%" />
                         <Text fontWeight={"bold"}>{el.title}</Text>
                         <Text >{el.category}</Text>
-                        <Text fontWeight={"bold"}>{el.price}</Text>
+                        <Text fontWeight={"bold"}> ₹ {el.price}</Text>
                     </Card>
                 ))
             }

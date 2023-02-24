@@ -11,7 +11,7 @@ import {
     Divider,
   } from '@chakra-ui/react'
 import React from 'react'
-export default function DrawerEx() {
+export default function DrawerEx({setorderby}) {
     const { isOpen, onOpen, onClose } = useDisclosure()
     const btnRef = React.useRef()
   
@@ -37,6 +37,7 @@ export default function DrawerEx() {
                         justifyContent='center'
                         width='100%'
      colorScheme='red' marginBottom={8}
+      onClick={() => setorderby("asc")}
       
      >Sort By Ascending </Button>
            
@@ -47,7 +48,7 @@ export default function DrawerEx() {
               justifyContent='center'
               width='100%'
             colorScheme='red'  marginBottom={8}
-           
+            onClick={() => setorderby("desc")}
             >Sort By Descending </Button>
              <Button 
               display='flex'
@@ -55,7 +56,7 @@ export default function DrawerEx() {
               justifyContent='center'
               width='100%'
             colorScheme='red'  marginBottom={8}
-            
+            onClick={() => setorderby("")}
             >Reset</Button>
          <Divider variant="solid" orientation='horizontal' colorScheme={"red"} size="20px"/>
             </DrawerBody>
