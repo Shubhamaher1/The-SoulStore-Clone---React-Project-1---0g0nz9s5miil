@@ -98,6 +98,7 @@ export default function Carousel() {
             backgroundRepeat="no-repeat"
             backgroundSize="cover"
             backgroundImage={silder1}
+            width={{base:"300px" ,md:"450px" , lg:"80%" , xl:"100%"}}
            
           />
            <Box

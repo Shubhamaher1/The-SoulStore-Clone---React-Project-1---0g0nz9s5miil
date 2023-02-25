@@ -9,11 +9,14 @@ import {
     Button,
     useDisclosure,
     Divider,
+    Input,
   } from '@chakra-ui/react'
-import React from 'react'
+import React, { useContext } from 'react'
+import { AuthContext } from '../ContextApi/AuthContextProvider'
 export default function DrawerEx({setorderby}) {
     const { isOpen, onOpen, onClose } = useDisclosure()
     const btnRef = React.useRef()
+    const {setquery} = useContext(AuthContext)
   
     return (
       <>
@@ -58,7 +61,11 @@ export default function DrawerEx({setorderby}) {
             colorScheme='red'  marginBottom={8}
             onClick={() => setorderby("")}
             >Reset</Button>
+
+
          <Divider variant="solid" orientation='horizontal' colorScheme={"red"} size="20px"/>
+
+            <Input type={"text"} placeholder='search product'  onChange={(e) => setquery(e.target.value)}/>
             </DrawerBody>
               
           
