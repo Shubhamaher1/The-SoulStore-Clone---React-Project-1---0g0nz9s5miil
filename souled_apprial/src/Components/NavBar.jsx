@@ -34,7 +34,7 @@ import { useContext } from 'react';
 import { AuthContext } from '../ContextApi/AuthContextProvider';
 export default function WithSubnavigation() {
   const { isOpen, onToggle } = useDisclosure();
- const {setquery} = useContext(AuthContext)
+ const {setquery , user,isauth ,arr} = useContext(AuthContext)
   return (
     <Box >
       <Flex
@@ -72,7 +72,7 @@ export default function WithSubnavigation() {
             textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
             fontFamily={'heading'}
             color={useColorModeValue('gray.800', 'white')}>
-            <img style={{ borderRadius:"50%"}}  src={logos} alt="logo" width="80px" height="50px"/>
+            <Link to={"/"}><img style={{ borderRadius:"50%"}}  src={logos} alt="logo" width="80px" height="50px"/></Link>
           </Text>
 
           <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
@@ -91,15 +91,20 @@ export default function WithSubnavigation() {
            alignItems="center"
           >
           
-          <Button
+        <Link to={'/login'} alignItems="center" >
+        <Button
+        marginTop="5px"
             as={'a'}
             fontSize={'xl'}
             fontWeight={400}
             variant={'link'}
-            href={'#'}>
-            <FaRegUser/>
+            to={'/login'}
+             alignItems="center"
+            >
+          { isauth ?<Text marginLeft={2} fontWeight="bold">vivek</Text> : <FaRegUser/> }
           
           </Button>
+        </Link>
           <Button
             as={'a'}
             display={{ base: 'none', md: 'inline-flex' }}
@@ -123,7 +128,7 @@ export default function WithSubnavigation() {
             variant={'link'}
             href={'#'}>
            <CiShoppingCart/>
-          
+           <span style={{marginBottom:"20px", color:"red",borderRadius:"60%" }}>{arr.length? arr.length:null}</span>
           </Button>
          </Link>
         </Stack>

@@ -163,7 +163,7 @@ useEffect(() => {
                     <Text fontWeight={"bold"}>₹  {discount==="masai10" ?(finalPrice*90)/100 : finalPrice}</Text>
                     
                  </Box>
-                  <Button onClick={ handlePlaceorder} marginTop={10} _hover={{bg:"#298E83"}} bg={"#298E83"} marginBottom={3}>PLACE ORDER</Button>
+                  <Button onClick={handlePlaceorder} marginTop={10} _hover={{bg:"#298E83"}} bg={"#298E83"} marginBottom={3}>PLACE ORDER</Button>
                </Card> 
                 
               }

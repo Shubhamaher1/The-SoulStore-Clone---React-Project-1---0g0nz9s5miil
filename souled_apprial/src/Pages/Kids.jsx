@@ -22,7 +22,7 @@ const Kids = () => {
             <div className='collectionmens' style={{marginTop:"30px"}}>
              <Box>
                  <Text fontWeight={"bold"} fontSize="4xl">COLLECTIONS</Text>
-               <Grid w={"97%"} gridTemplateColumns={"repeat(3,1fr)"} gap="30px" margin={"auto"} marginTop={10}>
+               <Grid w={"97%"} gridTemplateColumns={{base:"repeat(1,1fr)", md:"repeat(2,1fr)" , lg:"repeat(3,1fr)"}} gap="30px" margin={"auto"} marginTop={10}>
                   <Link to={"/kidsproducts"}><Image src={kidcollection1} alt="collection1"/></Link>
                   <Image src={kidcollection2} alt="collection2"/>
                   <Image src={kidcollection3} alt="collection3"/>
@@ -39,7 +39,7 @@ const Kids = () => {
          <div className='OFFICIAL MERCHANDISE' style={{marginTop:"30px"}}>
          <Text fontWeight={"bold"} fontSize="4xl">OFFICIAL MERCHANDISE</Text>
              
-             <Grid gridTemplateColumns={"repeat(5,1fr)"} gap={30} width="92%" margin="auto" marginTop={5}>
+             <Grid gridTemplateColumns={{base:"repeat(2,1fr)", md:"repeat(3,1fr)" , lg:"repeat(5,1fr)"}} gap={30} width="92%" margin="auto" marginTop={5}>
                  <motion.Box
                    whileHover={{ scale: 1.01 }}
                    whileTap={{ scale: 0.9 }}
@@ -75,7 +75,7 @@ const Kids = () => {
          </div>
                <div className='topselling' style={{marginTop:"30px"}}>
                <Text fontWeight={"bold"} fontSize="4xl">TOP SELLING</Text>
-                 <Grid gridTemplateColumns={"repeat(4,1fr)"} gap={30} w={"95%"} margin="auto" marginTop={7}>
+                 <Grid gridTemplateColumns={{base:"repeat(2,1fr)", md:"repeat(2,1fr)" , lg:"repeat(4,1fr)"}} gap={30} w={"95%"} margin="auto" marginTop={7}>
                   <Image src={topsellkids1} alt="topsell1"/>
                   <Image src={topsellkids2} alt="topsell"/>
                   <Image src={topsellkids3} alt="topsell"/>
