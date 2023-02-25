@@ -22,17 +22,19 @@ import {
   ChevronDownIcon,
   ChevronRightIcon,
 } from '@chakra-ui/icons';
-import { BsFillBagCheckFill } from "react-icons/bs";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {  faHeart, faUser } from "@fortawesome/free-solid-svg-icons";
+// import { BsFillBagCheckFill } from "react-icons/bs";
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+// import {  faHeart, faUser } from "@fortawesome/free-solid-svg-icons";
 import logos from "../images/logos.png"
 import {Link} from "react-router-dom"
 import {AiOutlineHeart} from 'react-icons/ai'
 import {FaRegUser} from 'react-icons/fa' 
 import {CiShoppingCart} from 'react-icons/ci'
+import { useContext } from 'react';
+import { AuthContext } from '../ContextApi/AuthContextProvider';
 export default function WithSubnavigation() {
   const { isOpen, onToggle } = useDisclosure();
-
+ const {setquery} = useContext(AuthContext)
   return (
     <Box >
       <Flex
@@ -79,13 +81,16 @@ export default function WithSubnavigation() {
         </Flex>
          <Box>
 
-         <Input  placeholder={`SEARCH                      🔍`} borderRadius="20px"></Input>
+         <Input onChange={(e) => setquery(e.target.value)} type={"text"} placeholder={`SEARCH                      🔍`} borderRadius="20px"></Input>
          </Box>
         <Stack
           flex={{ base: 1, md: 0 }}
           justify={'flex-end'}
           direction={'row'}
-          spacing={6}>
+          spacing={6}
+           alignItems="center"
+          >
+          
           <Button
             as={'a'}
             fontSize={'xl'}
@@ -110,7 +115,8 @@ export default function WithSubnavigation() {
              
              <AiOutlineHeart/>
           </Button>
-          <Button
+         <Link to={"/cart"} alignItems="center">
+         <Button
             as={'a'}
             fontSize={'xl'}
             fontWeight={400}
@@ -119,6 +125,7 @@ export default function WithSubnavigation() {
            <CiShoppingCart/>
           
           </Button>
+         </Link>
         </Stack>
       </Flex>
 

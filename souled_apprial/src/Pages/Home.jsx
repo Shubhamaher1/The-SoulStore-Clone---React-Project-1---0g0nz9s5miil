@@ -26,6 +26,7 @@ import topsell2 from "../images/topsell2.webp"
 import topsell3 from "../images/topsell3.webp"
 import topsell4 from "../images/topsell4.webp"
 import lastcrousel from "../images/lastcrousel.webp"
+import { Link } from 'react-router-dom';
 
 
 const Home = () => {
@@ -88,7 +89,7 @@ const Home = () => {
          <div className='mensCards' style={{margin:"auto" ,marginTop:"30px"}} >
            <Grid gridTemplateColumns={{base:"repeat(2,1fr)", md:"repeat(3,1fr)" , lg:"repeat(4,1fr)"}} width="97%" margin={"auto"} gap={10}>
 
-            <Image src={mmenscard1} marginTop="20px" alt="mendscard" />
+            <Link to="/mensproducts"><Image src={mmenscard1} marginTop="20px" alt="mendscard" /></Link>
             <Image src={mmenscard2} alt="mendscard"/>
             <Image src={mmenscard3} alt="mendscard"/>
             <Image src={mmenscard4} alt="mendscard"/>

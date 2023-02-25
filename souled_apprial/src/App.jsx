@@ -14,6 +14,7 @@ function App() {
  const [mens , setmens] = useState(false)
  const [womens , setwomens] = useState(false)
  const [kids , setkids] = useState(false)
+ 
  const navigate = useNavigate
 
  const onClicked = (val)=>{
@@ -87,7 +88,7 @@ function App() {
        
 
     </Box>
-      <NavBar/>
+      <NavBar />
       <AllRoutes/>
       <Footer/>
     </div>

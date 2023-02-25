@@ -1,24 +1,65 @@
-import React, { useEffect, useState } from 'react';
-import { GetKidsProducts } from '../Api/Api';
+import React, { useContext, useEffect, useState } from 'react';
+import { Cartdata, Cartdataget, GetKidsProducts } from '../Api/Api';
 import KidsCrousel from '../Components/KidsCrousel';
-import { Box,  Breadcrumb,  BreadcrumbItem,  BreadcrumbLink,  Card, Flex, Grid, Image, Text } from '@chakra-ui/react';
+import { Box,  Breadcrumb,  BreadcrumbItem,  BreadcrumbLink,  Button,  Card, Flex, Grid, Image, Text } from '@chakra-ui/react';
 import Loader from '../Components/Loader';
 import DrawerEx from '../Components/Drawer';
+import { AuthContext } from '../ContextApi/AuthContextProvider';
+import axios from 'axios';
 const KidsProducts = () => {
     const [kids  ,setkids] = useState([])
     const [loading , setloading] = useState(false)
+    const [orderby , setorderby] = useState("")
+    const {query} = useContext(AuthContext)
     useEffect(()=>{
-       FetchKidsData()
-    },[])
-  const FetchKidsData = ()=>{
+       FetchKidsData(orderby,query)
+    },[orderby,query])
+  const FetchKidsData = (orderby,query)=>{
     setloading(true)
-    GetKidsProducts()
+    GetKidsProducts(orderby,query)
     .then((res) =>{
       setloading(false)
          setkids(res.data)
     },[])
   }
  
+
+  const handleCart = (id,item)=>{
+
+    const newCartValue = { ...item };
+     newCartValue.count = 1;
+     Cartdata(newCartValue)
+      Cartdataget().then((res) =>{
+         res.data.map((ele) => {
+           if(ele.id ===id){
+          
+             ele.count += 1;
+            return  axios.patch(`https://mock-server-json-x067.onrender.com/cart/${id}`, ele)
+              
+            
+            // If count key doesn't exist, create count key with value 1
+            
+           }
+           else{
+            console.log("come form else")
+            newCartValue.count = 1;
+            Cartdata(newCartValue)
+           }
+           
+         })
+      })
+  
+  
+    
+  
+    
+    
+  
+   }
+  
+
+
+
   return (
     <div>
       <KidsCrousel/>
@@ -39,7 +80,7 @@ const KidsProducts = () => {
 </Breadcrumb>
        </div>
        <Flex className='filter' justify={"start"} marginLeft="75px" marginTop={5}>
-              <DrawerEx  />
+              <DrawerEx  setorderby={setorderby} />
            </Flex>
 
 
@@ -54,6 +95,7 @@ const KidsProducts = () => {
                         <Text fontWeight={"bold"}>{el.title}</Text>
                         <Text >{el.category}</Text>
                         <Text fontWeight={"bold"}> ₹ {el.price}</Text>
+                        <Button  onClick={() => handleCart(el.id, el)}  _hover={{bg:"#FF0000"}} bg={"#FF0000"} color="white">Add To Cart</Button>
                     </Card>
                 ))
             }
