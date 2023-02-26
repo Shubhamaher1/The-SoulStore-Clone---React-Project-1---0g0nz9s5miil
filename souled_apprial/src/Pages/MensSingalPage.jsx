@@ -1,6 +1,6 @@
 import {
   Box,
-  chakra,
+
   Container,
   Stack,
   Text,
@@ -12,17 +12,15 @@ import {
   SimpleGrid,
   StackDivider,
   useColorModeValue,
-  VisuallyHidden,
+
   List,
   ListItem,
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
+
 } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
-import { FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa';
+
 import { MdLocalShipping } from 'react-icons/md';
-import { Routes, Route, useParams } from 'react-router-dom';
+import {  useParams } from 'react-router-dom';
 import { getdataforproddetails } from '../Api/Api';
 
 export default function MensSingalPage() {

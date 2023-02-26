@@ -1,4 +1,7 @@
 import axios from "axios"
+import { useContext } from "react"
+import { AuthContext } from "../ContextApi/AuthContextProvider"
+
 export const GetmensProducts = (orderby,query)=>{
          
 
@@ -68,7 +71,7 @@ export const GetKidsProducts = (orderby,query)=>{
 }
 
 export const Cartdata = (data)=>{
-  console.log(data)
+  // console.log(data)
   return axios({
     method:"post",
     url:`https://mock-server-json-x067.onrender.com/cart`,
@@ -102,5 +105,63 @@ export const getdataforproddetails1 = (id)=>{
   return axios({
       method:"get",
       url:`https://mock-server-json-x067.onrender.com/womensProducts/${id}`
+  })
+}
+export const getdataforproddetails2 = (id)=>{
+  return axios({
+      method:"get",
+      url:`https://mock-server-json-x067.onrender.com/kidsProducts/${id}`
+  })
+}
+
+export const DeletecartItem = ()=>{
+  // const {arr} = useContext(AuthContext)
+  // for(let i=0; i<arr.length; i++){
+  //   let id = arr[i]
+  //   console.log(id)
+  //   CartDelete(id)
+  // }
+ 
+}
+
+
+
+export const userLoginPost= (obj)=>{
+  const{email,password,name,age} = obj
+
+  return axios({
+      method:"post",
+      url:"https://mock-server-json-x067.onrender.com/users",
+      data:{
+          name,
+          age,
+          email,
+          password,
+      }
+  })
+}
+
+export const userLoginGet = (obj)=>{
+  const{email,password} = obj
+  return axios({
+      method:"get",
+      url:"https://mock-server-json-x067.onrender.com/users",
+      params:{
+          _email:email,
+          _password:password
+      }
+  
+  })
+}
+
+
+
+
+//--------------------------------------------------Admin Req----------------------------------------------
+
+export const HandleGEtOrder = ()=>{
+  return axios({
+    method:"get",
+    url:`https://mock-server-json-x067.onrender.com/cart`
   })
 }

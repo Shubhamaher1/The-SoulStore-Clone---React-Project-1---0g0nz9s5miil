@@ -1,6 +1,6 @@
 import {
     Box,
-    
+  
     Container,
     Stack,
     Text,
@@ -12,23 +12,23 @@ import {
     SimpleGrid,
     StackDivider,
     useColorModeValue,
-   
+  
     List,
     ListItem,
-   
+  
   } from '@chakra-ui/react';
   import { useEffect, useState } from 'react';
-  // import { FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa';
+  
   import { MdLocalShipping } from 'react-icons/md';
   import {  useParams } from 'react-router-dom';
-  import {  getdataforproddetails1 } from '../Api/Api';
+  import {  getdataforproddetails2 } from '../Api/Api';
   
-  export default function WomensSingalPage() {
+  export default function KidsSingalPage() {
     let params = useParams();
     const[data , setdata] = useState({})
   
     const fetchdata = (id)=>{
-      getdataforproddetails1(id)
+      getdataforproddetails2(id)
       .then((res)=>{
        setdata(res.data)
       })
@@ -161,3 +161,5 @@ import {
     </Container>
     );
   }
+
+

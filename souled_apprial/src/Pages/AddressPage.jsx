@@ -18,7 +18,7 @@ import {
 import { AuthContext } from '../ContextApi/AuthContextProvider';
 import axios from 'axios';
 import PaymentPage from './PaymentPage';
-import { handleEmptycart } from '../Api/Api';
+import { DeletecartItem, handleEmptycart } from '../Api/Api';
 const AddressPage = () => {
    
     const { adresstotal,addressGst  } = useContext(AuthContext)
@@ -57,8 +57,15 @@ const AddressPage = () => {
 
       const HandlePlaceorder = ()=>{
         setfinal(true)
+        DeletecartItem()
       }
       console.log(OTP)
+
+    // const EmptyCart = ()=>{
+      
+    // }
+ 
+
 
   return (
     <Box marginTop="150px" display={"flex"}  flexDirection={{base:"column" ,md:"column" , lg:"row"}} justifyContent={"center"} gap={20}>
@@ -159,6 +166,7 @@ const AddressPage = () => {
                  </Box>
                   <Button isDisabled ={success===false} marginTop={10} _hover={{bg:"#298E83"}} bg={"#298E83"} marginBottom={3} 
                    onClick={HandlePlaceorder}
+
                   >PLACE ORDER</Button>
                </Card> 
 

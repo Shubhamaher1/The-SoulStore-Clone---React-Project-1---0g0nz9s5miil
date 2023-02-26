@@ -12,7 +12,7 @@ const MensProducts = () => {
 const [mensdata ,setmensdata] = useState([])
 const [loading , setloading] = useState(false)
 const [orderby , setorderby] = useState("")
-const {query,cartData , setcartData} = useContext(AuthContext)
+const {query,cartData , setcartData,setarr,arr} = useContext(AuthContext)
 const [cartItems , setCartItems] = useState([])
 // console.log(query)
  setcartData(cartItems)
@@ -31,7 +31,7 @@ const FecthMendsData = (orderby,query)=>{
 }
 
 const handleCart = (id,item)=>{
-
+  arr.push(item)
   const newCartValue = { ...item };
    newCartValue.count = 1;
    Cartdata(newCartValue)
@@ -112,7 +112,7 @@ const handleCart = (id,item)=>{
             { 
                 mensdata && mensdata.map((el)=>(
                     <Card key={el.id} padding="15px" alignItems={"center"}>
-                       <Link to={`/mensproducts/${el.id}`}> <Image src={el.image} alt={el.title} w="70%" /></Link>
+                       <Link to={`/mensproducts/${el.id}`}> <Image src={el.image} marginLeft={{base:"60px"}} alt={el.title} w="70%" /></Link>
                         <Text fontWeight={"bold"}>{el.title}</Text>
                         <Text >{el.category}</Text>
                         <Text fontWeight={"bold"}> ₹ {el.price}</Text>

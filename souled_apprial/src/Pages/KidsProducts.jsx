@@ -6,11 +6,12 @@ import Loader from '../Components/Loader';
 import DrawerEx from '../Components/Drawer';
 import { AuthContext } from '../ContextApi/AuthContextProvider';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 const KidsProducts = () => {
     const [kids  ,setkids] = useState([])
     const [loading , setloading] = useState(false)
     const [orderby , setorderby] = useState("")
-    const {query} = useContext(AuthContext)
+    const {query,arr} = useContext(AuthContext)
     useEffect(()=>{
        FetchKidsData(orderby,query)
     },[orderby,query])
@@ -25,6 +26,7 @@ const KidsProducts = () => {
  
 
   const handleCart = (id,item)=>{
+    arr.push(item)
 
     const newCartValue = { ...item };
      newCartValue.count = 1;
@@ -91,7 +93,7 @@ const KidsProducts = () => {
             {
               kids && kids.map((el)=>(
                     <Card key={el.id} padding="15px" alignItems={"center"}>
-                        <Image src={el.image} alt={el.title} w="70%" />
+                        <Link to={`/kidsproducts/${el.id}`}><Image marginLeft={{base:"60px"}} src={el.image} alt={el.title} w="70%" /></Link>
                         <Text fontWeight={"bold"}>{el.title}</Text>
                         <Text >{el.category}</Text>
                         <Text fontWeight={"bold"}> ₹ {el.price}</Text>
