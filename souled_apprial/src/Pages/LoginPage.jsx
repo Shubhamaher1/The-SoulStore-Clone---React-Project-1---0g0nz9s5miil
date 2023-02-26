@@ -100,12 +100,12 @@ const {handleLogin , setuser} = useContext(AuthContext)
             </Stack>
             <Stack pt={6}>
               <Text align={'center'}>
-              Register with The Souled Apprial <Link to='/register' style={{color:'blue'}}>Register</Link>
+              Register with The Souled Apprial  <Link to='/register' style={{color:'blue'}}>Register</Link>
               </Text>
             </Stack>
             <Stack pt={6}>
               <Text align={'center'}>
-               The Souled Apprial  Admin Login<Link to='/adminlogin' style={{color:'blue'}}>Login As Admin</Link>
+               The Souled Apprial  Admin Login  <Link to='/adminlogin' style={{color:'blue'}}>Login As Admin</Link>
               </Text>
             </Stack>
           </Stack>
