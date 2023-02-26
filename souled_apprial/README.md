@@ -30,7 +30,7 @@ For storing user data ,I used Api with ASxios method
 * Landing page (Home page) 
 
 ![Landing page (Home page)] 
-<img src="./src/images/home.png" width="200px"/>
+<img src="./src/images/home.png" width="70%"/>
 
 * Product page
 ![Product page]  
